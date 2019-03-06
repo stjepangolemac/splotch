@@ -70,3 +70,7 @@ yarn-error.log
 
 # webstorm
 .idea
+
+# GraphQL Schema File (for Webstorm plugin intellisense)
+schema.json
+graphql.config.json

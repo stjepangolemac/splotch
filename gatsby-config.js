@@ -10,8 +10,9 @@ module.exports = {
     },
   },
   plugins: [
+    'gatsby-plugin-extract-schema',
+    'gatsby-plugin-sitemap',
     {
-      'gatsby-plugin-sitemap',
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
