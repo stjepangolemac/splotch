@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Image from 'gatsby-image'
 import styled from 'styled-components'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+import CoverImage from '../components/CoverImage'
 import { rhythm, scale } from '../utils/typography'
 
 const Description = styled.p`
@@ -20,14 +20,6 @@ const Date = styled.p`
   margin-top: ${rhythm(-0.5)};
 
   ${scale(-1 / 5)};
-`
-const StyledImage = styled(Image)`
-  margin: ${rhythm(1.5)}
-    calc(-1 * ((100vw - ${rhythm(24)}) / 2) - ${rhythm(3 / 4)});
-
-  @media screen and (max-width: ${rhythm(24)}) {
-    margin: ${rhythm(1.5)} -${rhythm(3 / 4)};
-  }
 `
 const Content = styled.div`
   & img[src$='gif'] {
@@ -64,8 +56,10 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
+          {...post.frontmatter.cover}
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          alt={post.frontmatter.coverAlt}
         />
         <article>
           <header>
@@ -78,13 +72,7 @@ class BlogPostTemplate extends React.Component {
             </Date>
           </header>
           {post.frontmatter.cover && (
-            <>
-              <a href={post.frontmatter.cover.publicURL}>
-                <StyledImage
-                  fluid={post.frontmatter.cover.childImageSharp.fluid}
-                />
-              </a>
-            </>
+            <CoverImage image={post.frontmatter.cover} />
           )}
           <Content dangerouslySetInnerHTML={{ __html: post.html }} />
           <Hr />
@@ -131,15 +119,12 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM D, YYYY")
         description
+        coverAlt
+        date(formatString: "MMMM D, YYYY")
         cover {
-          publicURL
-          childImageSharp {
-            fluid(maxWidth: 1440, quality: 100, srcSetBreakpoints:[200, 340, 520, 890, 1440, 1920, 2560, 3840]) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
+          ...SEOImage
+          ...CoverImage
         }
       }
     }
