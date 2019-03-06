@@ -3,6 +3,7 @@ title: Slashing down the linescraper one domain at a time
 date: "2019-03-04T23:31:14+0000"
 description: Reducing the Redux boilerplate by domain driven modularization of store management logic.
 cover: "./cover.jpg"
+coverAlt: forest and trail
 ---
 
 I started using React and Redux a couple of months ago and after going through the basic concepts I immediately **fell in love**. It took one relatively complex app to realize how much boilerplate I needed to write. It soon became apparent that without some kind of **reorganization** of logic and file structure, maintenance and extension will become tiresome.
@@ -78,7 +79,7 @@ users/
 Now, all remaining files need to be imported into the index file and afterwards exported.
 
 ```js
-// index.js
+SEO.js
 import * as constants from './constants'
 import * as actions from './actions'
 import * as selectors from './selectors'
@@ -114,7 +115,7 @@ import
 The index file can be used for all sorts of wiring and enwrapments of React components too. This is exceptionally useful if the component is connected to the part of Redux state and has constants, action creators, or requires an async action to be called. The structure is the same with the addition of the component definition.
 
 ```js
-// containers/TodoList/index.js
+SEO.js
 import { connect } from 'react-redux'
 import TodoList from './todolist'
 import * as constants from './constants'

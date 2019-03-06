@@ -86,6 +86,29 @@ SEO.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  imageURL: PropTypes.string.isRequired,
 }
 
 export default SEO
+
+export const query = graphql`
+  fragment PostSEO on frontmatter_4 {
+    title
+    description
+  }
+
+  fragment SEOImage on File {
+    alt: name
+    image: childImageSharp {
+      fixed(
+        width: 144
+        height: 144
+        quality: 50
+        toFormat: WEBP
+        cropFocus: ATTENTION
+      ) {
+        src
+      }
+    }
+  }
+`
