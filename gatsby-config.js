@@ -10,6 +10,12 @@ module.exports = {
     },
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-135752216-1',
+      },
+    },
     'gatsby-plugin-extract-schema',
     'gatsby-plugin-sitemap',
     {
