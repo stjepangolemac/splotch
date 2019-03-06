@@ -4,7 +4,7 @@ module.exports = {
     author: `Stjepan Golemac`,
     description:
       'Personal blog by Stjepan Golemac. I write about React and frontend in general. Very interested in cloud native development and machine learning too.',
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    siteUrl: `https://splotch.dev`,
     social: {
       twitter: 'SGolemac',
     },
