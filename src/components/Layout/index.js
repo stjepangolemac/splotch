@@ -22,6 +22,13 @@ const Heading = styled.h1`
     large
       ? { ...scale(1.5), marginBottom: rhythm(1.5) }
       : { ...scale(2 / 3), marginBottom: rhythm(2 / 3) }};
+
+  transform: scale(1);
+  transition: transform ease-in-out 200ms;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 `
 
 const Layout = props => {

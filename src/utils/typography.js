@@ -63,9 +63,14 @@ const typography = new Typography({
     a: {
       color: '#d43900',
       textDecoration: 'none',
+      backgroundImage: 'linear-gradient(currentColor, currentColor)',
+      backgroundPosition: '0% 100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '0% 0.1em',
+      transition: 'background-size ease-in-out 200ms',
     },
     'a:hover,a:active': {
-      boxShadow: 'none',
+      backgroundSize: '100% 0.1em',
     },
     'mark,ins': {
       background: '#007acc',

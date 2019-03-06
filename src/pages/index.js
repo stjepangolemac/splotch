@@ -9,6 +9,13 @@ import { rhythm } from '../utils/typography'
 
 const Heading = styled.h2`
   margin-bottom: ${rhythm(1 / 4)};
+
+  transform: scale(1);
+  transition: transform ease-in-out 200ms;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 `
 
 class BlogIndex extends React.Component {
