@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, image, alt }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -18,7 +18,62 @@ function SEO({ description, lang, meta, keywords, title }) {
     `
   )
 
+  console.log(alt)
+
   const metaDescription = description || site.siteMetadata.description
+  const metas = [
+    {
+      name: `description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:title`,
+      content: title,
+    },
+    {
+      property: `og:description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:type`,
+      content: `website`,
+    },
+    {
+      name: `twitter:card`,
+      content: `summary`,
+    },
+    {
+      name: `twitter:creator`,
+      content: site.siteMetadata.author,
+    },
+    {
+      name: `twitter:title`,
+      content: title,
+    },
+    {
+      name: `twitter:description`,
+      content: metaDescription,
+    },
+  ].concat(meta)
+
+  if (keywords.length) {
+    metas.push({
+      name: `keywords`,
+      content: keywords.join(`, `),
+    })
+  }
+  if (image) {
+    metas.push({
+      name: `twitter:image`,
+      content: image.fixed.src,
+    })
+  }
+  if (alt) {
+    metas.push({
+      name: `twitter:image:alt`,
+      content: alt,
+    })
+  }
 
   return (
     <Helmet
@@ -27,49 +82,7 @@ function SEO({ description, lang, meta, keywords, title }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
-            : []
-        )
-        .concat(meta)}
+      meta={metas}
     />
   )
 }
@@ -86,17 +99,13 @@ SEO.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
-  imageURL: PropTypes.string.isRequired,
+  image: PropTypes.object,
+  alt: PropTypes.string,
 }
 
 export default SEO
 
 export const query = graphql`
-  fragment PostSEO on frontmatter_4 {
-    title
-    description
-  }
-
   fragment SEOImage on File {
     alt: name
     image: childImageSharp {
