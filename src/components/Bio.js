@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from 'styled-components'
 
-import { rhythm } from '../../utils/typography'
+import { rhythm } from '../utils/typography'
 
 const Container = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ function Bio() {
             />
             <p>
               Written by <strong>{author}</strong> who lives and works in
-              London. Usually does React but very interested in cloud native
+              London. Usually does React but is very interested in cloud native
               development and machine learning too.
               {` `}
               <a

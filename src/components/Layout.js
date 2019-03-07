@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-import { rhythm, scale } from '../../utils/typography'
+import { rhythm, scale } from '../utils/typography'
 
 const Container = styled.div`
   margin: 0 auto;
