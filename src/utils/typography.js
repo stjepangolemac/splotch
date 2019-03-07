@@ -82,7 +82,11 @@ const typography = new Typography({
   overrideThemeStyles: () => {
     return {
       'a.gatsby-resp-image-link': {
-        boxShadow: `none`,
+        margin: `${typography.rhythm(1.5)} -${typography.rhythm(3 / 4)}`,
+        backgroundImage: 'unset',
+      },
+      'a.gatsby-resp-image-link:hover,a.gatsby-resp-image-link:focus': {
+        backgroundSize: 'unset',
       },
     }
   },

@@ -34,9 +34,22 @@ const Content = styled.div`
   & pre {
     margin-bottom: ${rhythm(1)};
   }
+
+  & a:only-child {
+    background-image: unset;
+
+    &:hover,
+    &:focus {
+      backgroundsize: 'unset';
+    }
+  }
+
+  & hr {
+    margin: 0 ${rhythm(2)} ${rhythm(1)} ${rhythm(2)};
+  }
 `
 const Hr = styled.hr`
-  margin-bottom: ${rhythm(1)};
+  margin: 0 ${rhythm(2)} ${rhythm(1)} ${rhythm(2)};
 `
 const RecommendedList = styled.ul`
   display: flex;
