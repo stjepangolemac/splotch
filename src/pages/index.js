@@ -38,7 +38,9 @@ class BlogIndex extends React.Component {
           return (
             <div key={node.fields.slug}>
               <Heading>
-                <Link to={node.fields.slug}>{title}</Link>
+                <Link to={node.fields.slug} title={title}>
+                  {title}
+                </Link>
               </Heading>
               <small>{`${node.frontmatter.date} • ${node.timeToRead} minute${
                 pluralMinutes ? 's' : ''

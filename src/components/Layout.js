@@ -39,7 +39,7 @@ const Layout = props => {
     <Container>
       <header>
         <Heading large={isRoot}>
-          <StyledLink inheritColor={isRoot} to={`/`}>
+          <StyledLink inheritColor={isRoot} to={`/`} title="Home">
             {title}
           </StyledLink>
         </Heading>
@@ -49,7 +49,9 @@ const Layout = props => {
         <small>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a href="https://www.gatsbyjs.org" title="Gatsby homepage">
+            Gatsby
+          </a>
         </small>
       </footer>
     </Container>

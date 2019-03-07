@@ -41,6 +41,7 @@ function Bio() {
                 target="_blank"
                 rel="nofollow noopener noreferrer"
                 href={`https://twitter.com/${social.twitter}`}
+                title="Twitter Account"
               >
                 You can follow me on Twitter
               </a>

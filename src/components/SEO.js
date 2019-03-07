@@ -3,7 +3,16 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title, image, alt }) {
+function SEO({
+  description,
+  lang,
+  meta,
+  keywords,
+  title,
+  twitterImage,
+  facebookImage,
+  alt,
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -30,12 +39,24 @@ function SEO({ description, lang, meta, keywords, title, image, alt }) {
       content: title,
     },
     {
+      property: `og:site_name`,
+      content: site.siteMetadata.title,
+    },
+    {
+      property: `og:url`,
+      content: site.siteMetadata.siteUrl,
+    },
+    {
       property: `og:description`,
       content: metaDescription,
     },
     {
       property: `og:type`,
       content: `website`,
+    },
+    {
+      property: `twitter:site`,
+      content: site.siteMetadata.title,
     },
     {
       name: `twitter:card`,
@@ -61,10 +82,16 @@ function SEO({ description, lang, meta, keywords, title, image, alt }) {
       content: keywords.join(`, `),
     })
   }
-  if (image) {
+  if (twitterImage) {
     metas.push({
       name: `twitter:image`,
-      content: `${site.siteMetadata.siteUrl}${image.fixed.src}`,
+      content: `${site.siteMetadata.siteUrl}${twitterImage.fixed.src}`,
+    })
+  }
+  if (facebookImage) {
+    metas.push({
+      name: `og:image`,
+      content: `${site.siteMetadata.siteUrl}${facebookImage.fixed.src}`,
     })
   }
   if (alt) {
@@ -98,7 +125,8 @@ SEO.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
-  image: PropTypes.object,
+  twitterImage: PropTypes.object,
+  facebookImage: PropTypes.object,
   alt: PropTypes.string,
 }
 
@@ -107,10 +135,21 @@ export default SEO
 export const query = graphql`
   fragment SEOImage on File {
     alt: name
-    image: childImageSharp {
+    twitterImage: childImageSharp {
       fixed(
         width: 144
         height: 144
+        quality: 50
+        toFormat: WEBP
+        cropFocus: ATTENTION
+      ) {
+        src
+      }
+    }
+    facebookImage: childImageSharp {
+      fixed(
+        width: 1200
+        height: 627
         quality: 50
         toFormat: WEBP
         cropFocus: ATTENTION
