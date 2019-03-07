@@ -12,6 +12,7 @@ function SEO({ description, lang, meta, keywords, title, image, alt }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -65,7 +66,7 @@ function SEO({ description, lang, meta, keywords, title, image, alt }) {
   if (image) {
     metas.push({
       name: `twitter:image`,
-      content: image.fixed.src,
+      content: `${site.siteMetadata.siteUrl}${image.fixed.src}`,
     })
   }
   if (alt) {
