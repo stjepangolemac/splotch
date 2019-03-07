@@ -1,6 +1,6 @@
 ---
 title: Slashing down the linescraper one domain at a time
-date: "2019-03-04T23:31:14+0000"
+date: "2017-04-26T00:21:31+0000"
 description: Reducing the Redux boilerplate by domain driven modularization of store management logic.
 cover: "./cover.jpg"
 coverAlt: forest and trail

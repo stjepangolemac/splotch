@@ -1,6 +1,6 @@
 ---
 title: Step by step guide for writing awesome React components 
-date: "2019-03-06T23:36:34+0000"
+date: "2018-01-18T00:20:40+0000"
 description: Descriptive and versatile checklist with must do’s and should do’s when conceptualizing sleek and professional React code
 cover: "./cover.jpg"
 coverAlt: typing on laptop
