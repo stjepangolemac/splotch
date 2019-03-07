@@ -6,6 +6,12 @@ cover: "./cover.jpg"
 coverAlt: typing on laptop
 ---
 
+#### Notice
+
+This article is reposted from [Codeburst Medium publication](https://codeburst.io/step-by-step-guide-for-writing-awesome-react-components-210c6def902b).
+
+---
+
 Going through the process of learning and using React and Redux I came to a following conclusion - they are not hard to grasp but are fairly difficult to master. Both are pretty minimal when it comes to their API and that helps new users to churn out new components and even apps at an incredible pace. Nevertheless, that convenience degrades the average quality of React code.
 
 Being the minimally opinionated library as it is, React allows a fair amount of maneuverability regarding the different approaches one can take. The consequence of that is the broad spectrum of available best practices for someone to apply.
