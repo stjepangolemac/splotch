@@ -18,10 +18,19 @@ const StyledLink = styled(({ inheritColor, ...props }) => <Link {...props} />)`
 const Heading = styled.h1`
   margin-top: 0;
 
-  ${({ large }) =>
-    large
-      ? { ...scale(1.5), marginBottom: rhythm(1.5) }
-      : { ...scale(2 / 3), marginBottom: rhythm(2 / 3) }};
+  ${{ ...scale(1.5), marginBottom: rhythm(1.5) }};
+
+  transform: scale(1);
+  transition: transform ease-in-out 200ms;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+`
+const SmallerHeading = styled.h2`
+  margin-top: 0;
+
+  ${{ ...scale(2 / 3), marginBottom: rhythm(2 / 3) }};
 
   transform: scale(1);
   transition: transform ease-in-out 200ms;
@@ -35,14 +44,16 @@ const Layout = props => {
   const { location, title, children } = props
   const isRoot = location.pathname === '/'
 
+  const HeadingComponent = isRoot ? Heading : SmallerHeading
+
   return (
     <Container>
       <header>
-        <Heading large={isRoot}>
+        <HeadingComponent>
           <StyledLink inheritColor={isRoot} to={`/`} title="Home">
             {title}
           </StyledLink>
-        </Heading>
+        </HeadingComponent>
       </header>
       <main>{children}</main>
       <footer>
