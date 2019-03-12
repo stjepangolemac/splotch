@@ -6,6 +6,7 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import CoverImage from '../components/CoverImage'
+import Social from '../components/Social'
 import { rhythm, scale } from '../utils/typography'
 
 const Description = styled.p`
@@ -63,8 +64,9 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+    const siteUrl = this.props.data.site.siteMetadata.siteUrl
     const pluralMinutes = post.timeToRead > 1
-    const { previous, next } = this.props.pageContext
+    const { previous, next, slug } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -88,8 +90,9 @@ class BlogPostTemplate extends React.Component {
             <CoverImage image={post.frontmatter.cover} />
           )}
           <Content dangerouslySetInnerHTML={{ __html: post.html }} />
-          <Hr />
           <footer>
+            <Social title={post.frontmatter.title} url={siteUrl + slug} />
+            <Hr />
             <Bio />
           </footer>
         </article>
@@ -123,6 +126,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

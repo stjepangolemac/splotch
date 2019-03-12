@@ -60,7 +60,7 @@ function SEO({
     },
     {
       name: `twitter:card`,
-      content: `summary`,
+      content: `summary_large_image`,
     },
     {
       name: `twitter:creator`,
@@ -137,9 +137,9 @@ export const query = graphql`
     alt: name
     twitterImage: childImageSharp {
       fixed(
-        width: 144
-        height: 144
-        quality: 50
+        width: 600
+        height: 314
+        quality: 75
         toFormat: WEBP
         cropFocus: ATTENTION
       ) {
@@ -150,7 +150,7 @@ export const query = graphql`
       fixed(
         width: 1200
         height: 627
-        quality: 50
+        quality: 75
         toFormat: WEBP
         cropFocus: ATTENTION
       ) {

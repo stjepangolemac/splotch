@@ -12,6 +12,17 @@ module.exports = {
   plugins: [
     'gatsby-plugin-robots-txt',
     {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        prettier: true,
+        svgo: true,
+        svgoConfig: {
+          removeViewBox: true,
+          cleanupIDs: true,
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'UA-135752216-1',
