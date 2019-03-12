@@ -10,7 +10,7 @@ const typography = new Typography({
   headerFontFamily: ['Fredoka One', 'Comic Sans MS', 'sans-serif'],
   headerWeight: '400',
   headerColor: 'hsla(0, 0%, 15%, 1)',
-  bodyFontFamily: ['Merriweather', 'Times New Roman', 'serif'],
+  bodyFontFamily: ['Lora', 'PT Sans', 'serif'],
   bodyWeight: '400',
   boldWeight: '700',
   bodyColor: 'hsla(0, 0%, 10%, 1)',
@@ -77,6 +77,9 @@ const typography = new Typography({
       color: 'white',
       padding: `${rhythm(1 / 16)} ${rhythm(1 / 8)}`,
       textDecoration: 'none',
+    },
+    hr: {
+      backgroundColor: 'rgba(0, 0, 0, 0.1)',
     },
   }),
   overrideThemeStyles: () => {

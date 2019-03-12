@@ -46,9 +46,8 @@
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
     "styled-components": "^4.1.3",
-    "typeface-abril-fatface": "^0.0.72",
     "typeface-fredoka-one": "^0.0.72",
-    "typeface-merriweather": "^0.0.72",
+    "typeface-lora": "^0.0.72",
     "typography": "^0.16.18",
     "typography-breakpoint-constants": "^0.16.18",
     "typography-theme-wordpress-2016": "^0.16.18"
