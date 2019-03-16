@@ -6,7 +6,6 @@ import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import CoverImage from '../components/CoverImage'
-import Social from '../components/Social'
 import { rhythm, scale } from '../utils/typography'
 
 const Description = styled.p`
@@ -91,7 +90,6 @@ class BlogPostTemplate extends React.Component {
           )}
           <Content dangerouslySetInnerHTML={{ __html: post.html }} />
           <footer>
-            <Social title={post.frontmatter.title} url={siteUrl + slug} />
             <Hr />
             <Bio />
           </footer>
