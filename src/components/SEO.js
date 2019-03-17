@@ -107,6 +107,7 @@ function SEO({
     <Helmet
       htmlAttributes={{
         lang,
+        prefix: 'og: http://ogp.me/ns#',
       }}
       title={title}
       titleTemplate={`%s • ${site.siteMetadata.title}`}
