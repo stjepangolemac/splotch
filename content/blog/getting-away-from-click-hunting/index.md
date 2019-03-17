@@ -1,6 +1,6 @@
 ---
 title: "Getting away from click hunting: Alternative to Medium"
-date: "2019-03-12T22:31:28+0000"
+date: "2019-03-17T13:58:49+0000"
 description: "Why would anyone build a custom blog with all the free and quick alternatives"
 cover: "./cover.jpg"
 coverAlt: birds migration
