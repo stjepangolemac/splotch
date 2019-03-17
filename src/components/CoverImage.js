@@ -8,6 +8,7 @@ import { rhythm } from '../utils/typography'
 
 const StyledImage = styled(Image)`
   margin: ${rhythm(1.5)}
+    calc(-1 * ((100vw - ${rhythm(24)}) / 2) - ${rhythm(3 / 4)}) ${rhythm(2.5)}
     calc(-1 * ((100vw - ${rhythm(24)}) / 2) - ${rhythm(3 / 4)});
 
   @media screen and (max-width: ${rhythm(24)}) {
