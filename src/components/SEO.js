@@ -91,10 +91,20 @@ function SEO({
     })
   }
   if (facebookImage) {
-    metas.push({
-      name: `og:image`,
-      content: `${site.siteMetadata.siteUrl}${facebookImage.fixed.src}`,
-    })
+    metas.push(
+      {
+        name: `og:image`,
+        content: `${site.siteMetadata.siteUrl}${facebookImage.fixed.src}`,
+      },
+      {
+        name: `og:image:width`,
+        content: '1200',
+      },
+      {
+        name: `og:image:height`,
+        content: '627',
+      }
+    )
   }
   if (alt) {
     metas.push({
