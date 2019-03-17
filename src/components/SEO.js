@@ -28,6 +28,8 @@ function SEO({
     `
   )
 
+  console.log(facebookImage)
+
   const metaDescription = description || site.siteMetadata.description
   const metas = [
     {
@@ -151,7 +153,7 @@ export const query = graphql`
         width: 1200
         height: 627
         quality: 75
-        toFormat: WEBP
+        toFormat: JPG
         cropFocus: ATTENTION
       ) {
         src
